@@ -42,8 +42,13 @@ DENSITY,        1,      FLOAT32
 WEIGHTS_n       4,      UNSIGNED_NORMALIZED_BYTE
 ```
 
+See the [Voxel data format issue](https://github.com/enkisoftware/OpenVoxelFileFormat/issues/4)
+
 ## Implementation Notes
 
 The glTF file format with an extension for voxel data and material palettes meets these goals. [The .glb binary format](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#binary-gltf-layout) is limited to a `uint32` length and single `uint32` length binary buffer, which is likely too short for large voxel scenes. Thus either external data (which is part of the spec) may need to be used or an alternative binary format might be required. A compressed zip like format may be a good way to handle bundling a gltf file and its associated binary data files.
 
 [A voxel data extension has been propossed for glTF, PR #2496](https://github.com/KhronosGroup/glTF/pull/2496) however this does not look like it would meet our Voxel Data goals, but it might be worth experimenting with to check.
+
+
+See the issue [Implementation decision: modify existing format or custom](https://github.com/enkisoftware/OpenVoxelFileFormat/issues/3)
