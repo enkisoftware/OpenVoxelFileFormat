@@ -1,12 +1,14 @@
 # OpenVoxelFileFormat
 Open Voxel File Format Discussion and Specification
 
+This is intended as a simple format for exchanging voxel scenes, models and animations etc. There will be a binary voxel data representation with some compression, but extremely highly compressed voxel data is not a primary goal.
+
 ## Status
-The format is currently in the discussion stage
+The format is currently in the requirements definition and early design stage.
 
 ## Requirements
 
-Note that these are currently fairly high level to permit some flexibility in the 
+Note that these are currently fairly high level to permit some flexibility in the implementation.
 
 ### Scene Description
 
