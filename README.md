@@ -17,10 +17,11 @@ Note that these are currently fairly high level to permit some flexibility in th
 1. Arbitrary transforms
 1. Animation:
    1. Transform animations
-   2. Bone animations
+   2. Bone animations (per voxel weights can be included in voxel data)
    3. Frame-animations (stretch goal)
    4. Multiple animation tracks
-1. PBR material properties including those needed for transmissive volumes
+1. Materials
+   1. PBR material properties including those needed for transmissive volumes
    1. Multiple material palettes
 1. Voxel Data (see below)
 
@@ -43,6 +44,6 @@ WEIGHTS_n       4,      UNSIGNED_NORMALIZED_BYTE
 
 ## Implementation Notes
 
-The glTF file format with an extension for voxel data and material palettes meets these goals. Due to it's limitations for the size of binary data in the `glb` format external voxel assets may be required, and thus in practice we may want to use a compressed archive container or extend the glb binary blob spec.
+The glTF file format with an extension for voxel data and material palettes meets these goals. [The .glb binary format](https://registry.khronos.org/glTF/specs/2.0/glTF-2.0.html#binary-gltf-layout) is limited to a uint32 length and single uint32 length binary buffer, which is likely too short for large voxel scenes. Thus either external data (which is part of the spec) may need to be used or an alternative binary binary format might be required. A compressed zip like format may be a good way to handle bundling a gltf file and it's associated binary data files.
 
-[A voxel data extension has been propossed for glTF, PR #2496](https://github.com/KhronosGroup/glTF/pull/2496) however this does not look like it would meet our Voxel Data goals, but it would be might worth experimenting with to check.
+[A voxel data extension has been propossed for glTF, PR #2496](https://github.com/KhronosGroup/glTF/pull/2496) however this does not look like it would meet our Voxel Data goals, but it might be worth experimenting with to check.
